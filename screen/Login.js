@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TextInput, StatusBar, Image, ScrollView, useColorScheme } from 'react-native'
+import { View, Text, StyleSheet, TextInput, StatusBar, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { useState } from "react";
 import Colors from '../constant/Colors';
@@ -16,11 +16,11 @@ const Login = ({ navigation }) => {
     const handleValidEmail = () => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
         if (email == "" || email == undefined || email == null) {
-            setEmailValidError('Email address must be enter');
+            setEmailValidError('Please Enter Email');
             setchEmail(false);
             return false;
         } else if (!reg.test(email)) {
-            setEmailValidError('Enter valid email address');
+            setEmailValidError('Please Enter valid email address');
             setchEmail(false);
             return false;
         } else {
@@ -32,11 +32,11 @@ const Login = ({ navigation }) => {
     const handlePassword = () => {
         var reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
         if (Password == "" || Password == undefined || Password == null) {
-            setpasswordValidError('Password  must be enter');
+            setpasswordValidError('Please Enter Password');
             setchPassword(false);
             return false;
         } else if (!reg.test(Password)) {
-            setpasswordValidError('Enter valid Password must contain atleast 8 character, capital & lowercase letter,special & numeric character');
+            setpasswordValidError('Enter Valid Password Must Contain Atleast 8 Character, Capital & Lowercase Letter,Special & Numeric Character');
             setchPassword(false);
             return false;
         } else {
@@ -48,14 +48,14 @@ const Login = ({ navigation }) => {
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.container}>
-                <StatusBar barStyle="dark-content" backgroundColor="#ffff" />
+                <StatusBar  backgroundColor={Colors.statusbarbackground} />
                 <View style={styles.logintext}>
                     <Text style={styles.textlog}>Login</Text>
                     <Text style={styles.subtext}>Welcome Home My Friend</Text>
                 </View>
-                <View style={{ marginTop: 12 }}    >
+                <View style={styles.inputemail}    >
                     <View style={styles.inputView}>
-                        <Icon name="mail-outline" size={constantElement.size} style={styles.inputicon} />
+                        <Icon name={constantElement.email} size={constantElement.size} style={styles.inputicon} />
                         <TextInput
                             style={styles.TextInput}
                             placeholder="Email"
@@ -68,11 +68,11 @@ const Login = ({ navigation }) => {
 
                     </View>
                     <View>
-                        {chEmail == true ? null : <Text style={{ color: "red" }} testID="error">{emailValidError}</Text>}
+                        {chEmail == true ? null : <Text style={styles.color} testID="error">{emailValidError}</Text>}
                     </View>
                 </View>
                 <View style={styles.inputView}>
-                    <Icon name="lock-closed-outline" size={constantElement.size} style={styles.inputicon} />
+                    <Icon name={constantElement.password} size={constantElement.size} style={styles.inputicon} />
                     <TextInput
                         style={styles.TextInput}
                         placeholder="Password"
@@ -84,17 +84,17 @@ const Login = ({ navigation }) => {
                     />
                 </View>
                 <View>
-                    {chPassword == true ? null : <Text style={{color: Colors.red}}>{passwordValidError}</Text>}
+                    {chPassword == true ? null : <Text style={styles.color}>{passwordValidError}</Text>}
                 </View>
                 <TouchableOpacity style={styles.loginBtn} onPress={() => {
                     if (handleValidEmail() && handlePassword()) {
-                        navigation.replace("Signup")
+                        navigation.navigate("Dashboard")
                     }
                 }}>
                     <Text style={styles.loginbtntext} testID="Signuptest">LOG IN</Text>
                 </TouchableOpacity>
 
-                <View style={{ marginTop: 20, flexDirection: "row" }}>
+                <View style={styles.rememberview}>
                     <View style={styles.remember} />
 
                     <Text style={styles.textremem}>Remember Pasword</Text>
@@ -102,7 +102,7 @@ const Login = ({ navigation }) => {
                 </View>
                 <Text onPress={() => { navigation.navigate("Forgotpassword") }} testID="Forgotpassword" style={styles.textforgot}>Forgot Pasword ?</Text>
                 <Text style={styles.account}>Dont have an account ?</Text>
-                <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+                <View style={styles.pleaseview}>
                     <Text style={styles.textplease}>Please</Text>
                     <Text onPress={() => { navigation.navigate("Signup") }} testID="Signup" style={styles.textsignup}> SIGN UP</Text>
                 </View>
@@ -115,7 +115,7 @@ const Login = ({ navigation }) => {
                 <View>
                     <View style={{ ...styles.loginfacebook, backgroundColor: Colors.loggooglebackground }}>
                         <Image style={styles.image} source={require('../asset/google.png')} />
-                        <Text style={{ ...styles.loginbtntext, color: "#ef3038" }}>LOG IN WITH GOOGLE</Text>
+                        <Text style={{ ...styles.loginbtntext, color: Colors.loginwithgoogle}}>LOG IN WITH GOOGLE</Text>
                     </View>
                 </View>
             </View>
@@ -126,12 +126,13 @@ const Login = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor:Colors.white,
         padding: 30
     },
     logintext: {
         marginTop: 30
     },
+    inputemail:{ marginTop: 12 },
     textlog: {
         fontSize: 30,
         color: "black",
@@ -142,20 +143,29 @@ const styles = StyleSheet.create({
         fontSize: 14,
         marginTop: 20
     },
+    color:{
+        color:Colors.red
+    },
     inputView: {
         marginTop: 20,
         flexDirection: "row"
     },
+    rememberview:{ marginTop: 20,
+         flexDirection: "row" },
     TextInput: {
         paddingLeft: 50,
         borderBottomWidth: 0.3,
         flex: 1,
         fontSize: 12
     },
+    pleaseview:{ flexDirection: "row", 
+    alignItems: "center", 
+    justifyContent: "center" 
+},
     inputicon: {
         marginTop: 15,
         position: "absolute",
-        
+
     },
     loginBtn:
     {
@@ -191,11 +201,11 @@ const styles = StyleSheet.create({
     account: {
         marginTop: 20,
         textAlign: 'center',
-        color: "#404040",
+        color: Colors.darkshadegray,
         fontWeight: "400"
     },
     textplease: {
-        color: "#404040",
+        color:Colors.darkshadegray ,
         fontWeight: "400"
     },
     textsignup: {

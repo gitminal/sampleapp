@@ -75,7 +75,7 @@ const Signup = ({ navigation }) => {
     const handlePasswordRetype = () => {
         var repass = PasswordRetype.trim();
         if (repass == "" || repass == undefined || repass == null) {
-            setPasswordRetypeValidError(' Enter Password Again');
+            setPasswordRetypeValidError('Please Enter Password Again');
             setchPasswordRetype(false);
             return false;
         } else if (repass != Password) {
@@ -92,14 +92,14 @@ const Signup = ({ navigation }) => {
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.container}>
-                <StatusBar style={styles.statusbarstyle}/>
+            <StatusBar  backgroundColor={Colors.statusbarbackground} />
                 <View style={styles.logintext}>
                     <Text style={styles.textlog}>SIGN UP</Text>
                     <Text style={styles.subtext}>Welcome Home My Friend</Text>
                 </View>
-                <View style={{ marginTop: 15 }}>
+                <View style={styles.input}>
                     <View style={styles.inputView}>
-                        <Icon name="person-outline" size={constantElement.size}  style={styles.inputicon} />
+                        <Icon name={constantElement.name} size={constantElement.size}  style={styles.inputicon} />
                         <TextInput
                             style={styles.TextInput}
                             placeholder="Name"
@@ -108,11 +108,11 @@ const Signup = ({ navigation }) => {
                         />
                     </View>
                     <View>
-                        {chName == true ? null :<Text style={{ color: "red" }}>{nameValidError}</Text>}
+                        {chName == true ? null : <Text style={styles.color}>{nameValidError}</Text>}
                     </View>
                 </View>
                 <View style={styles.inputView}>
-                    <Icon name="mail-outline" size={constantElement.size}  style={styles.inputicon} />
+                    <Icon name={constantElement.email} size={constantElement.size}  style={styles.inputicon} />
                     <TextInput
                         style={styles.TextInput}
                         placeholder="Email"
@@ -124,10 +124,10 @@ const Signup = ({ navigation }) => {
                     />
                 </View>
                 <View>
-                    {chEmail == true ? null :<Text style={{ color: "red" }}>{emailValidError}</Text>}
+                    {chEmail == true ? null : <Text style={styles.color}>{emailValidError}</Text>}
                 </View>
                 <View style={styles.inputView}>
-                    <Icon name="lock-closed-outline" size={constantElement.size}  style={styles.inputicon} />
+                    <Icon name={constantElement.password} size={constantElement.size}  style={styles.inputicon} />
                     <TextInput
                         style={styles.TextInput}
                         placeholder="Password"
@@ -140,10 +140,10 @@ const Signup = ({ navigation }) => {
 
                 </View>
                 <View>
-                    {chPassword == true ? null :<Text style={{ color: "red" }}>{passwordValidError}</Text>}
+                    {chPassword == true ? null : <Text style={styles.color}>{passwordValidError}</Text>}
                 </View>
                 <View style={styles.inputView}>
-                    <Icon name="lock-closed-outline" size={constantElement.size}  style={styles.inputicon} />
+                    <Icon name={constantElement.password} size={constantElement.size}  style={styles.inputicon} />
                     <TextInput
                         style={styles.TextInput}
                         placeholder="Password Retype"
@@ -153,7 +153,7 @@ const Signup = ({ navigation }) => {
                     />
                 </View>
                 <View>
-                    {chPasswordRetype == true ? null :<Text style={{ color: "red" }}>{PasswordRetypeValidError}</Text>}
+                    {chPasswordRetype == true ? null : <Text style={styles.color}>{PasswordRetypeValidError}</Text>}
                 </View>
                 <View style={styles.rememberview}>
                     <View style={styles.remember} />
@@ -162,7 +162,7 @@ const Signup = ({ navigation }) => {
                 </View>
                 <TouchableOpacity style={styles.loginBtn} onPress={() => {
                     if (handleName() && handleValidEmail() && handlePassword() && handlePasswordRetype()) {
-                        navigation.replace("Login")
+                        navigation.navigate("Dashboard")
                     }
                 }}>
                     <Text style={styles.loginbtntext} testID="Signup">SIGN UP</Text>
@@ -181,7 +181,7 @@ const Signup = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: Colors.white,
         padding: 30
     },
     logintext: {
@@ -197,10 +197,14 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginTop: 20
     },
+    input:{ marginTop: 15 },
     inputView: {
 
         marginTop: 15,
         flexDirection: "row"
+    },
+    color:{
+        color:Colors.red
     },
     TextInput: {
         paddingLeft: 50,
@@ -245,10 +249,10 @@ const styles = StyleSheet.create({
     account: {
         marginTop: 20,
         textAlign: 'center',
-        color: "#404040"
+        color: Colors.darkshadegray
     },
     textplease: {
-        color: "#404040",
+        color: Colors.darkshadegray,
         fontWeight: "400"
     },
     textsignup: {

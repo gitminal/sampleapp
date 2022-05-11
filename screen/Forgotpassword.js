@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TextInput, StatusBar, TouchableOpacity } from '
 import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from '../constant/Colors';
-const Forgotpassword = ({ navigation }) => {
+const ForgotPassword = ({ navigation }) => {
 
     const [Forgotpassword, setForgotPassword] = useState('');
     const [chForgotpassword, setchForgotpassword] = useState(true);
@@ -122,4 +122,4 @@ const styles = StyleSheet.create({
     },
 
 })
-export default Forgotpassword;
+export default ForgotPassword;

@@ -18,6 +18,7 @@
     "@rneui/base": "github:react-native-elements/react-native-elements#base",
     "@rneui/themed": "^4.0.0-rc.2",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+    "axios": "^0.27.2",
     "metro-babel-register": "^0.70.2",
     "react": "17.0.2",
     "react-native": "0.68.1",
@@ -25,8 +26,14 @@
     "react-native-reanimated": "^2.8.0",
     "react-native-safe-area-context": "^4.2.5",
     "react-native-screens": "^3.13.1",
+    "react-native-swiper": "^1.6.0",
     "react-native-vector-icons": "^9.1.0",
-    "react-navigation": "^4.4.4"
+    "react-native-webview": "^11.18.2",
+    "react-navigation": "^4.4.4",
+    "react-redux": "^8.0.1",
+    "redux": "^4.2.0",
+    "redux-api-middleware": "^3.2.1",
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
