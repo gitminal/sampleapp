@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Hello App Display Name</string>
+    
+<string name="facebook_app_id">322452920042137</string>
+<string name="fb_login_protocol_scheme">fb1234</string>
+<string name="facebook_client_token">56789</string>
+
+
 </resources>

@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from '../constant/Colors';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import string from '../constant/string';
 import constantElement from '../constant/constantElement';
-
 const Signup = ({ navigation }) => {
     const [name, setname] = useState('');
     const [chName, setchName] = useState(true);
@@ -25,11 +25,11 @@ const Signup = ({ navigation }) => {
         var reg = /^[a-zA-Z ]{2,40}$/;
 
         if (name == "" || name == undefined || name == null) {
-            setnameValidError('Please Enter Name ');
+            setnameValidError(string.PleaseEnterName);
             setchName(false);
             return false;
         } else if (!reg.test(name)) {
-            setnameValidError('Enter Valid Name');
+            setnameValidError(string.EnterValidName);
             setchName(false);
             return false;
         } else (name == name)
@@ -43,11 +43,11 @@ const Signup = ({ navigation }) => {
     const handleValidEmail = () => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
         if (email == "" || email == undefined || email == null) {
-            setEmailValidError('Email Address Must Be Enter');
+            setEmailValidError(string.PleaseEnterEmail);
             setchEmail(false);
             return false;
         } else if (!reg.test(email)) {
-            setEmailValidError('Enter Valid Email Address');
+            setEmailValidError(string.PleaseEntervalidemailaddress);
             setchEmail(false);
             return false;
         } else {
@@ -59,11 +59,11 @@ const Signup = ({ navigation }) => {
     const handlePassword = () => {
         let reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
         if (Password == "" || Password == undefined || Password == null) {
-            setpasswordValidError('Password Must Be Enter');
+            setpasswordValidError(string.PleaseEnterPassword);
             setchPassword(false);
             return false;
         } else if (!reg.test(Password)) {
-            setpasswordValidError('Enter valid Password must contain atleast 8 character , capital & lowercase letter,special & numeric character');
+            setpasswordValidError(string.Entervalidpassword);
             setchPassword(false);
             return false;
         } else {
@@ -75,11 +75,11 @@ const Signup = ({ navigation }) => {
     const handlePasswordRetype = () => {
         var repass = PasswordRetype.trim();
         if (repass == "" || repass == undefined || repass == null) {
-            setPasswordRetypeValidError('Please Enter Password Again');
+            setPasswordRetypeValidError(string.PleaseEnterPasswordAgain);
             setchPasswordRetype(false);
             return false;
         } else if (repass != Password) {
-            setPasswordRetypeValidError('Password And Retype Password must be same');
+            setPasswordRetypeValidError(string.PasswordAndRetypePasswordmustbesame);
             setchPasswordRetype(false);
             return false;
         } else (repass == Password)
@@ -94,15 +94,15 @@ const Signup = ({ navigation }) => {
             <View style={styles.container}>
             <StatusBar  backgroundColor={Colors.statusbarbackground} />
                 <View style={styles.logintext}>
-                    <Text style={styles.textlog}>SIGN UP</Text>
-                    <Text style={styles.subtext}>Welcome Home My Friend</Text>
+                    <Text style={styles.textlog}>{string.SIGNUP}</Text>
+                    <Text style={styles.subtext}>{string.WelcomeHomeMyFriend}</Text>
                 </View>
                 <View style={styles.input}>
                     <View style={styles.inputView}>
-                        <Icon name={constantElement.name} size={constantElement.size}  style={styles.inputicon} />
+                        <Icon name={string.name} size={constantElement.size}  style={styles.inputicon} />
                         <TextInput
                             style={styles.TextInput}
-                            placeholder="Name"
+                            placeholder={string.Name}
                             onChangeText={setname}
                             onEndEditing={handleName}
                         />
@@ -112,12 +112,12 @@ const Signup = ({ navigation }) => {
                     </View>
                 </View>
                 <View style={styles.inputView}>
-                    <Icon name={constantElement.email} size={constantElement.size}  style={styles.inputicon} />
+                    <Icon name={string.email} size={constantElement.size}  style={styles.inputicon} />
                     <TextInput
                         style={styles.TextInput}
-                        placeholder="Email"
+                        placeholder={string.Email}
                         autoCorrect={false}
-                        autoCapitalize="none"
+                        autoCapitalize={string.none}
                         onChangeText={setEmail}
                         onEndEditing={handleValidEmail}
                         testID="Email"
@@ -127,10 +127,10 @@ const Signup = ({ navigation }) => {
                     {chEmail == true ? null : <Text style={styles.color}>{emailValidError}</Text>}
                 </View>
                 <View style={styles.inputView}>
-                    <Icon name={constantElement.password} size={constantElement.size}  style={styles.inputicon} />
+                    <Icon name={string.password} size={constantElement.size}  style={styles.inputicon} />
                     <TextInput
                         style={styles.TextInput}
-                        placeholder="Password"
+                        placeholder={string.Password}
                         secureTextEntry={true}
                         onChangeText={setPassword}
                         onEndEditing={handlePassword}
@@ -143,10 +143,10 @@ const Signup = ({ navigation }) => {
                     {chPassword == true ? null : <Text style={styles.color}>{passwordValidError}</Text>}
                 </View>
                 <View style={styles.inputView}>
-                    <Icon name={constantElement.password} size={constantElement.size}  style={styles.inputicon} />
+                    <Icon name={string.password} size={constantElement.size}  style={styles.inputicon} />
                     <TextInput
                         style={styles.TextInput}
-                        placeholder="Password Retype"
+                        placeholder={string.PasswordRetype}
                         secureTextEntry={true}
                         onChangeText={setPasswordRetype}
                         onEndEditing={handlePasswordRetype}
@@ -158,19 +158,19 @@ const Signup = ({ navigation }) => {
                 <View style={styles.rememberview}>
                     <View style={styles.remember} />
 
-                    <Text style={styles.textremem}>Terms & Conditions</Text>
+                    <Text style={styles.textremem}>{string.TermsConditions}</Text>
                 </View>
                 <TouchableOpacity style={styles.loginBtn} onPress={() => {
                     if (handleName() && handleValidEmail() && handlePassword() && handlePasswordRetype()) {
                         navigation.navigate("Dashboard")
                     }
                 }}>
-                    <Text style={styles.loginbtntext} testID="Signup">SIGN UP</Text>
+                    <Text style={styles.loginbtntext} testID="Signup">{string.SIGNUP}</Text>
                 </TouchableOpacity>
-                <Text style={styles.account}>Already  have an account ?</Text>
+                <Text style={styles.account}>{string.Alreadyhaveanaccount}</Text>
                 <View style={styles.loginview}>
-                    <Text style={styles.textplease}>Please</Text>
-                    <Text onPress={() => { navigation.navigate("Login") }} style={styles.textsignup} testID="Signuptest"> Login</Text>
+                    <Text style={styles.textplease}>{string.Please}</Text>
+                    <Text onPress={() => { navigation.navigate("Login") }} style={styles.textsignup} testID="Signuptest">{string.Login}</Text>
                 </View>
 
             </View>
@@ -257,7 +257,8 @@ const styles = StyleSheet.create({
     },
     textsignup: {
         color: Colors.primaryColor,
-        fontWeight: "500"
+        fontWeight: "500",
+        margin:2
     },
     loginfacebook: {
         borderRadius: 5,

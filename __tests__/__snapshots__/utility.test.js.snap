@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should execute axios data 1`] = `
+Object {
+  "type": "PRODUCT_SHOW",
+}
+`;
+
+exports[`should handle TEST_API_FAILURE action 1`] = `
+Array [
+  Object {
+    "type": "PRODUCT_SHOW",
+  },
+  Object {
+    "type": "PRODUCT_SHOW",
+  },
+]
+`;
+
+exports[`should handle TEST_API_FAILURE action 2`] = `
+Array [
+  Object {
+    "type": "PRODUCT_SHOW",
+  },
+  Object {
+    "type": "PRODUCT_SHOW",
+  },
+  Object {
+    "type": "USER_SHOW",
+  },
+  Object {
+    "type": "USER_SHOW",
+  },
+]
+`;
+
+exports[`should handle TEST_API_SUCCESS action 1`] = `
+Array [
+  Object {
+    "type": "PRODUCT_SHOW",
+  },
+]
+`;
+
+exports[`should handle TEST_API_SUCCESS action 2`] = `
+Array [
+  Object {
+    "type": "PRODUCT_SHOW",
+  },
+  Object {
+    "type": "PRODUCT_SHOW",
+  },
+  Object {
+    "type": "USER_SHOW",
+  },
+]
+`;

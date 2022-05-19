@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Login /> Your component Component: renders correctly 1`] = `<d1 />`;
-
-exports[`<Login /> Your component Has  TextInput 1`] = `undefined`;

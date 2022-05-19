@@ -9,7 +9,6 @@ export const getproduct = () => {
       const res = await axios.get("https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline");
       console.log("res", res.data[0].name);
       if (res.data) {
-
         dispatch({
           type: PRODUCT_SHOW,
           payload: res.data,

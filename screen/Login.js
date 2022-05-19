@@ -1,10 +1,14 @@
-import { View, Text, StyleSheet, TextInput, StatusBar, Image, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, TextInput, StatusBar, Image, ScrollView,TouchableOpacity } from 'react-native'
 import React from 'react'
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Colors from '../constant/Colors';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import string from '../constant/string';
 import Icon from 'react-native-vector-icons/Ionicons';
 import constantElement from '../constant/constantElement';
+import Loginwithgoogle from './Loginwithgoogle';
+import { notificationlistener } from './notificationservice';
+import { Loginwithfacebook } from './Loginwithfacebook';
+
 const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [chEmail, setchEmail] = useState(true);
@@ -13,14 +17,15 @@ const Login = ({ navigation }) => {
     const [Password, setPassword] = useState('');
     const [chPassword, setchPassword] = useState(true);
     const [passwordValidError, setpasswordValidError] = useState('');
+
     const handleValidEmail = () => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
         if (email == "" || email == undefined || email == null) {
-            setEmailValidError('Please Enter Email');
+            setEmailValidError(string.PleaseEnterEmail);
             setchEmail(false);
             return false;
         } else if (!reg.test(email)) {
-            setEmailValidError('Please Enter valid email address');
+            setEmailValidError(string.PleaseEntervalidemailaddress);
             setchEmail(false);
             return false;
         } else {
@@ -32,11 +37,11 @@ const Login = ({ navigation }) => {
     const handlePassword = () => {
         var reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
         if (Password == "" || Password == undefined || Password == null) {
-            setpasswordValidError('Please Enter Password');
+            setpasswordValidError(string.PleaseEnterPassword);
             setchPassword(false);
             return false;
         } else if (!reg.test(Password)) {
-            setpasswordValidError('Enter Valid Password Must Contain Atleast 8 Character, Capital & Lowercase Letter,Special & Numeric Character');
+            setpasswordValidError(string.Entervalidpassword);
             setchPassword(false);
             return false;
         } else {
@@ -44,23 +49,27 @@ const Login = ({ navigation }) => {
             setchPassword(true);
             return true;
         }
+       
     };
+    useEffect(() => {
+        notificationlistener()
+        }, []);
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.container}>
-                <StatusBar  backgroundColor={Colors.statusbarbackground} />
+                <StatusBar backgroundColor={Colors.statusbarbackground} />
                 <View style={styles.logintext}>
-                    <Text style={styles.textlog}>Login</Text>
-                    <Text style={styles.subtext}>Welcome Home My Friend</Text>
+                    <Text style={styles.textlog}>{string.Login}</Text>
+                    <Text style={styles.subtext}>{string.WelcomeHomeMyFriend}</Text>
                 </View>
-                <View style={styles.inputemail}    >
+                <View style={styles.inputemail}>
                     <View style={styles.inputView}>
-                        <Icon name={constantElement.email} size={constantElement.size} style={styles.inputicon} />
+                        <Icon name={string.email} size={constantElement.size} style={styles.inputicon} />
                         <TextInput
                             style={styles.TextInput}
-                            placeholder="Email"
+                            placeholder={string.Email}
                             autoCorrect={false}
-                            autoCapitalize="none"
+                            autoCapitalize={string.none}
                             onChangeText={setEmail}
                             onEndEditing={handleValidEmail}
                             testID="Emailtest"
@@ -72,10 +81,10 @@ const Login = ({ navigation }) => {
                     </View>
                 </View>
                 <View style={styles.inputView}>
-                    <Icon name={constantElement.password} size={constantElement.size} style={styles.inputicon} />
+                    <Icon name={string.password} size={constantElement.size} style={styles.inputicon} />
                     <TextInput
                         style={styles.TextInput}
-                        placeholder="Password"
+                        placeholder={string.Password}
                         secureTextEntry={true}
                         onChangeText={setPassword}
                         onEndEditing={handlePassword}
@@ -91,33 +100,34 @@ const Login = ({ navigation }) => {
                         navigation.navigate("Dashboard")
                     }
                 }}>
-                    <Text style={styles.loginbtntext} testID="Signuptest">LOG IN</Text>
+                    <Text style={styles.loginbtntext} testID="Signuptest">{string.LOGIN}</Text>
                 </TouchableOpacity>
 
                 <View style={styles.rememberview}>
                     <View style={styles.remember} />
 
-                    <Text style={styles.textremem}>Remember Pasword</Text>
+                    <Text style={styles.textremem}>{string.RememberPasword}</Text>
 
                 </View>
-                <Text onPress={() => { navigation.navigate("Forgotpassword") }} testID="Forgotpassword" style={styles.textforgot}>Forgot Pasword ?</Text>
-                <Text style={styles.account}>Dont have an account ?</Text>
+                <Text onPress={() => { navigation.navigate("Forgotpassword") }} testID="Forgotpassword" style={styles.textforgot}>{string.ForgotPasword}</Text>
+                <Text style={styles.account}>{string.Donthaveanaccount}</Text>
                 <View style={styles.pleaseview}>
-                    <Text style={styles.textplease}>Please</Text>
-                    <Text onPress={() => { navigation.navigate("Signup") }} testID="Signup" style={styles.textsignup}> SIGN UP</Text>
+                    <Text style={styles.textplease}>{string.Please}</Text>
+                    <Text onPress={() => { navigation.navigate("Signup") }} testID="Signup" style={styles.textsignup}>{string.SIGNUP}</Text>
                 </View>
                 <View>
-                    <View style={{ ...styles.loginfacebook, backgroundColor: Colors.loginfacebookbackground }}>
+                    <TouchableOpacity style={styles.loginfacebookbackgroundcolor } onPress={() =>Loginwithfacebook(navigation)}>
                         <Image style={styles.image} source={require('../asset/facebook.png')} />
-                        <Text style={{ ...styles.loginbtntext, color: Colors.textlogfacebook }}>LOG IN WITH FACEBOOK</Text>
-                    </View>
+                        <Text style={styles.loginfacebookcolor}>{string.LOGINWITHFACEBOOK}</Text>
+                    </TouchableOpacity>
                 </View>
                 <View>
-                    <View style={{ ...styles.loginfacebook, backgroundColor: Colors.loggooglebackground }}>
+                    <TouchableOpacity style={styles.logingooglebackgroundcolor} onPress={() =>Loginwithgoogle(navigation)}>
                         <Image style={styles.image} source={require('../asset/google.png')} />
-                        <Text style={{ ...styles.loginbtntext, color: Colors.loginwithgoogle}}>LOG IN WITH GOOGLE</Text>
-                    </View>
+                        <Text style={styles.loginbtngoogle}>{string.LOGINWITHGOOGLE}</Text>
+                    </TouchableOpacity>
                 </View>
+            
             </View>
         </ScrollView>
     )
@@ -126,13 +136,13 @@ const Login = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:Colors.white,
+        backgroundColor: Colors.white,
         padding: 30
     },
     logintext: {
         marginTop: 30
     },
-    inputemail:{ marginTop: 12 },
+    inputemail: { marginTop: 12 },
     textlog: {
         fontSize: 30,
         color: "black",
@@ -143,25 +153,28 @@ const styles = StyleSheet.create({
         fontSize: 14,
         marginTop: 20
     },
-    color:{
-        color:Colors.red
+    color: {
+        color: Colors.red
     },
     inputView: {
         marginTop: 20,
         flexDirection: "row"
     },
-    rememberview:{ marginTop: 20,
-         flexDirection: "row" },
+    rememberview: {
+        marginTop: 20,
+        flexDirection: "row"
+    },
     TextInput: {
         paddingLeft: 50,
         borderBottomWidth: 0.3,
         flex: 1,
         fontSize: 12
     },
-    pleaseview:{ flexDirection: "row", 
-    alignItems: "center", 
-    justifyContent: "center" 
-},
+    pleaseview: {
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center"
+    },
     inputicon: {
         marginTop: 15,
         position: "absolute",
@@ -180,6 +193,18 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 18,
         fontWeight: "bold"
+    },
+     loginbtngoogle: {
+        color: "white",
+        fontSize: 18,
+        fontWeight: "bold",
+        color: Colors.loginwithgoogle
+    },
+    loginfacebookcolor:{
+        color: "white",
+        fontSize: 18,
+        fontWeight: "bold",
+        color: Colors.textlogfacebook 
     },
     remember: {
 
@@ -205,12 +230,13 @@ const styles = StyleSheet.create({
         fontWeight: "400"
     },
     textplease: {
-        color:Colors.darkshadegray ,
+        color: Colors.darkshadegray,
         fontWeight: "400"
     },
     textsignup: {
         color: Colors.primaryColor,
-        fontWeight: "500"
+        fontWeight: "500",
+        margin:2
     },
     loginfacebook: {
         borderRadius: 5,
@@ -219,6 +245,22 @@ const styles = StyleSheet.create({
         marginTop: 10,
         flexDirection: "row",
     },
+loginfacebookbackgroundcolor:{
+    borderRadius: 5,
+    height: 45,
+    alignItems: "center",
+    marginTop: 10,
+    flexDirection: "row",
+    backgroundColor: Colors.loginfacebookbackground
+},
+logingooglebackgroundcolor:{
+    borderRadius: 5,
+    height: 45,
+    alignItems: "center",
+    marginTop: 10,
+    flexDirection: "row",
+    backgroundColor: Colors.loggooglebackground
+},
     image: {
         alignItems: 'flex-start',
         width: 20,

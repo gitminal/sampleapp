@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the user reducer should handle the ERROR_SHOW action 1`] = `
+Object {
+  "error": undefined,
+  "loading": false,
+  "product": Array [],
+}
+`;
+
+exports[`the user reducer should handle the PRODUCT_SHOW action 1`] = `
+Object {
+  "error": "",
+  "loading": false,
+  "product": Object {
+    "product": Array [
+      Object {
+        "name": "liner",
+        "price": "20",
+      },
+    ],
+  },
+}
+`;

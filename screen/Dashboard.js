@@ -2,9 +2,8 @@ import { View, Text, StyleSheet, FlatList, ActivityIndicator } from 'react-nativ
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Colors from '../constant/Colors'
-import { GET_APISHOW, getproduct } from '../redux/action';
+import { GET_APISHOW, getproduct } from '../redux/action/utility';
 import ProductComponent from '../Component/ProductComponent';
-import Seperator from './Seperator';
 export default function Dashboard({ navigation }) {
   const { product, error, loading } = useSelector(state => state.productReducer);
   console.log("product.....", product);
@@ -16,7 +15,11 @@ export default function Dashboard({ navigation }) {
     })
     fetchResult();
   }, []);
- 
+  const Seperator = () => {
+    return (
+      <View style={styles.Seperator} />
+    )
+  }
 
   const renderItem = ({ item }) => {
     function pressHandler() {
@@ -75,5 +78,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
 
   },
- 
+  Seperator:{
+    height: 1,
+    backgroundColor: Colors.gray
+  }
 })

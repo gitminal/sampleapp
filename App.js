@@ -8,20 +8,21 @@ import Dashnoard from './screen/Dashboard';
 import ProductDetail from './screen/ProductDetail'
 import { Provider } from 'react-redux'
 import { store } from './redux/store';
-import Webviewproduct from './screen/Webviewproduct';
-import Webview from './screen/Webview';
 const Stack = createStackNavigator();
 export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Login">
+        <Stack.Navigator initialRouteName="Dashnoard">
+
+
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}
           />
+
           <Stack.Screen name="Forgotpassword" component={Forgotpassword} options={{ headerShown: false }} />
           <Stack.Screen name="Signup" options={{ headerShown: false }} component={Signup}
           />
-          <Stack.Screen name="Dashboard" component={Dashnoard} options={{ headerLeft: null}} />
+          <Stack.Screen name="Dashboard" component={Dashnoard} Options= {{ headerLeft: null}}/>
 
           <Stack.Screen name="ProductDetail" component={ProductDetail}
 
@@ -38,8 +39,7 @@ export default function App() {
             }}
 
           />
-          <Stack.Screen name="Webview" component={Webview} />
-          <Stack.Screen name="Webviewproduct" component={Webviewproduct} />
+        
 
         </Stack.Navigator>
       </NavigationContainer>

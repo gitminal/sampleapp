@@ -1,13 +1,10 @@
 import React from "react";
 import { render } from "@testing-library/react-native"
 import Forgotpassword from "../screen/Forgotpassword";
-import { shallow, mount } from 'enzyme';
 import Adapter from "enzyme-adapter-react-16"
 import enzyme from 'enzyme';
 import { fireEvent, screen } from "react-native-testing-library";
 import renderer from 'react-test-renderer';
-import { debug } from "react-native-reanimated";
-import { View, Text, TouchableOpacity,styles ,TextInput} from 'react-native';
 enzyme.configure({ adapter: new Adapter() });
 
 describe('<Forgotpass />', () => {
@@ -28,7 +25,7 @@ describe('<Forgotpass />', () => {
         expect(getAllByText("SUBMIT").length).toBe(1);
         expect(getAllByText("Welcome Home My Friend").length).toBe(1);
         expect(getAllByText("Please").length).toBe(1);
-        expect(getByPlaceholderText("Email."));
+        expect(getByPlaceholderText("Email"));
     })
     it('show Invalid Username and password', () => {
         const { getByTestId, getByText, queryAllByText, getAllByText } = render(<Forgotpassword />)

@@ -1,11 +1,9 @@
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import React from 'react'
 import Colors from '../constant/Colors';
-import constantElement from '../constant/constantElement';
-
+import string from '../constant/string';
 const ProductComponent = ({ item, onPress }) => {
 
-  console.log("propss...", item);
   return (
     <TouchableOpacity onPress={onPress}>
       <View>
@@ -15,7 +13,7 @@ const ProductComponent = ({ item, onPress }) => {
             <Text style={styles.labelproduct}>
               {item.name}
             </Text>
-            <Text style={styles.label}>Price : {constantElement.Rs} {item.price}
+            <Text style={styles.label}>{string.Price} : {string.Rs} {item.price}
             </Text>
           </View>
         </View>

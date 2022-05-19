@@ -10,5 +10,7 @@ export default {
     statusbarbackground:  "#ffff",
     plainwhite:"#fffafa",
     loginwithgoogle:"#ef3038",
-    darkshadegray:"#404040"
+    darkshadegray:"#404040",
+    link: '#2980b9',
+    bluelink:"#0000FF"
 }

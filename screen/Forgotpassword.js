@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, TextInput, StatusBar, TouchableOpacity } from '
 import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from '../constant/Colors';
+import string from '../constant/string';
+import constantElement from '../constant/constantElement';
 const ForgotPassword = ({ navigation }) => {
 
     const [Forgotpassword, setForgotPassword] = useState('');
@@ -27,17 +29,17 @@ const ForgotPassword = ({ navigation }) => {
     }
     return (
         <View style={styles.container}>
-            <StatusBar barStyle="dark-content" backgroundColor="#ffff" />
+                <StatusBar backgroundColor={Colors.statusbarbackground} />
             <View style={styles.logintext}>
-                <Text style={styles.textlog}>Forgotpassword?</Text>
-                <Text style={styles.subtext}>Welcome Home My Friend</Text>
+                <Text style={styles.textlog}>{string.ForgotPasword}</Text>
+                <Text style={styles.subtext}>{string.WelcomeHomeMyFriend}</Text>
             </View>
 
             <View style={styles.inputView}>
-                <Icon name="mail-outline" size={15} style={styles.inputicon} />
+                <Icon name={string.email} size={constantElement.size} style={styles.inputicon} />
                 <TextInput
                     style={styles.TextInput}
-                    placeholder="Email."
+                    placeholder={string.Email}
                     autoCorrect={false}
                     autoCapitalize="none"
                     onChangeText={setForgotPassword}
@@ -49,13 +51,13 @@ const ForgotPassword = ({ navigation }) => {
                 {chForgotpassword == true ? null : <Text style={{ color: "red" }}>{ForgotpasswordValidError}</Text>}
             </View>
             <TouchableOpacity style={styles.loginBtn} onPress={() => { if (handleForgotPassword()) { navigation.replace("Signup") } }}>
-                <Text style={styles.loginbtntext}>SUBMIT</Text>
+                <Text style={styles.loginbtntext}>{string.SUBMIT}</Text>
             </TouchableOpacity>
-            <Text style={styles.account}>Already  have an account ?</Text>
+            <Text style={styles.account}>{string.Alreadyhaveanaccount}</Text>
             <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
-                <Text style={styles.textplease}>Please</Text>
+                <Text style={styles.textplease}>{string.Please}</Text>
                 <TouchableOpacity onPress={() => { navigation.navigate("Login") }}>
-                    <Text style={styles.textsignup} testID="Logintest"> Login</Text>
+                    <Text style={styles.textsignup} testID="Logintest">{string.Login}</Text>
                 </TouchableOpacity>
             </View>
         </View>
