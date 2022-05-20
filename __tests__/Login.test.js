@@ -60,12 +60,12 @@ describe('<Login />', () => {
         expect(container.find('TextInput[placeholder="Email"]').prop('onchageText')).toEqual(
           undefined,
         );
+
+     
       });
     
      
-      // const handleValidEmail = jest.fn();
-      // const END_EDITING = 'content';
-      
+   
       
 
 

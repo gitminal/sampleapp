@@ -1,0 +1,32 @@
+[33md810a9e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: reset: moving to origin/main
+[33md810a9e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{1}: reset: moving to head~1
+[33m37c8464[m HEAD@{2}: rebase (continue) (pick): .gitattributes
+[33md810a9e[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{3}: rebase (continue) (pick): Add
+[33m89deb65[m HEAD@{4}: reset: moving to HEAD~1
+[33m59abd4a[m HEAD@{5}: reset: moving to HEAD~1
+[33m3d5634c[m HEAD@{6}: reset: moving to HEAD^
+[33md38df50[m HEAD@{7}: reset: moving to HEAD
+[33md38df50[m HEAD@{8}: reset: moving to HEAD~1
+[33mb9f180c[m HEAD@{9}: reset: moving to HEAD~1
+[33m9a58b31[m HEAD@{10}: 
+[33m7872e4c[m HEAD@{11}: Branch: renamed refs/heads/main to refs/heads/main
+[33m7872e4c[m HEAD@{13}: Branch: renamed refs/heads/main to refs/heads/main
+[33m7872e4c[m HEAD@{15}: commit: first commit
+[33m6004ae7[m HEAD@{16}: reset: moving to HEAD
+[33m6004ae7[m HEAD@{17}: reset: moving to HEAD~1
+[33m2861577[m HEAD@{18}: reset: moving to HEAD~1
+[33mf964b80[m HEAD@{19}: reset: moving to HEAD~1
+[33md0494ae[m HEAD@{20}: 
+[33md0494ae[m HEAD@{21}: commit: add
+[33mf964b80[m HEAD@{22}: 
+[33m4a6ebad[m HEAD@{23}: reset: moving to HEAD
+[33m4a6ebad[m HEAD@{24}: reset: moving to HEAD~
+[33medf8fb8[m HEAD@{25}: commit: add
+[33m4a6ebad[m HEAD@{26}: commit: add
+[33mf4bf28e[m HEAD@{27}: commit: .gitattributes
+[33m9105926[m HEAD@{28}: commit: Add
+[33maca7f2b[m HEAD@{29}: 
+[33m7934ea5[m HEAD@{30}: commit: add
+[33mf1f031b[m HEAD@{31}: commit: change
+[33m0b7b97e[m HEAD@{32}: commit: Added my project
+[33m12bb8a6[m HEAD@{33}: commit (initial): test this app

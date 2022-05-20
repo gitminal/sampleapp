@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1652957148725" clover="3.2.0">
-  <project timestamp="1652957148726" name="All files">
-    <metrics statements="282" coveredstatements="159" conditionals="479" coveredconditionals="189" methods="105" coveredmethods="59" elements="866" coveredelements="407" complexity="0" loc="282" ncloc="282" packages="7" files="16" classes="16"/>
+<coverage generated="1653040213058" clover="3.2.0">
+  <project timestamp="1653040213058" name="All files">
+    <metrics statements="283" coveredstatements="158" conditionals="479" coveredconditionals="187" methods="105" coveredmethods="57" elements="867" coveredelements="402" complexity="0" loc="283" ncloc="283" packages="7" files="16" classes="16"/>
     <package name="sampleapp">
       <metrics statements="15" coveredstatements="12" conditionals="37" coveredconditionals="26" methods="6" coveredmethods="5"/>
       <file name="App.js" path="C:\workspace\sampleapp\App.js">
@@ -103,7 +103,7 @@
       </file>
     </package>
     <package name="sampleapp.screen">
-      <metrics statements="224" coveredstatements="111" conditionals="402" coveredconditionals="135" methods="85" coveredmethods="42"/>
+      <metrics statements="225" coveredstatements="110" conditionals="402" coveredconditionals="133" methods="85" coveredmethods="40"/>
       <file name="Dashboard.js" path="C:\workspace\sampleapp\screen\Dashboard.js">
         <metrics statements="23" coveredstatements="18" conditionals="41" coveredconditionals="28" methods="12" coveredmethods="8"/>
         <line num="1" count="2" type="stmt"/>
@@ -130,7 +130,7 @@
         <line num="44" count="0" type="stmt"/>
         <line num="53" count="2" type="stmt"/>
       </file>
-      <file name="ForgotPassword.js" path="C:\workspace\sampleapp\screen\ForgotPassword.js">
+      <file name="Forgotpassword.js" path="C:\workspace\sampleapp\screen\Forgotpassword.js">
         <metrics statements="28" coveredstatements="15" conditionals="91" coveredconditionals="30" methods="14" coveredmethods="8"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -159,7 +159,7 @@
         <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="59" count="1" type="stmt"/>
         <line num="67" count="2" type="stmt"/>
-        <line num="127" count="2" type="stmt"/>
+        <line num="132" count="2" type="stmt"/>
       </file>
       <file name="Login.js" path="C:\workspace\sampleapp\screen\Login.js">
         <metrics statements="53" coveredstatements="25" conditionals="102" coveredconditionals="31" methods="19" coveredmethods="10"/>
@@ -227,17 +227,17 @@
         <line num="16" count="3" type="stmt"/>
       </file>
       <file name="Loginwithgoogle.js" path="C:\workspace\sampleapp\screen\Loginwithgoogle.js">
-        <metrics statements="10" coveredstatements="5" conditionals="10" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="4" type="cond" truecount="2" falsecount="4"/>
-        <line num="3" count="2" type="stmt"/>
+        <metrics statements="10" coveredstatements="4" conditionals="10" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="cond" truecount="0" falsecount="6"/>
+        <line num="3" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
       </file>
       <file name="ProductDetail.js" path="C:\workspace\sampleapp\screen\ProductDetail.js">
         <metrics statements="15" coveredstatements="11" conditionals="22" coveredconditionals="6" methods="11" coveredmethods="2"/>
@@ -341,11 +341,12 @@
         <line num="288" count="2" type="stmt"/>
       </file>
       <file name="notificationservice.js" path="C:\workspace\sampleapp\screen\notificationservice.js">
-        <metrics statements="9" coveredstatements="5" conditionals="12" coveredconditionals="5" methods="7" coveredmethods="3"/>
+        <metrics statements="10" coveredstatements="5" conditionals="12" coveredconditionals="5" methods="7" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="cond" truecount="3" falsecount="1"/>
         <line num="4" count="8" type="cond" truecount="2" falsecount="1"/>
         <line num="6" count="4" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
         <line num="10" count="0" type="cond" truecount="0" falsecount="3"/>
         <line num="11" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>

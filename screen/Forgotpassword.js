@@ -13,11 +13,11 @@ const ForgotPassword = ({ navigation }) => {
     const handleForgotPassword = () => {
         let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
         if (Forgotpassword == "" || Forgotpassword == undefined || Forgotpassword == null) {
-            setForgotpasswordValidError('email address must be enter');
+            setForgotpasswordValidError(string.PleaseEnterEmail);
             setchForgotpassword(false);
             return false;
         } else if (!reg.test(Forgotpassword)) {
-            setForgotpasswordValidError('enter valid email address');
+            setForgotpasswordValidError(string.PleaseEntervalidemailaddress);
             setchForgotpassword(false);
             return false;
         } else {
@@ -41,20 +41,20 @@ const ForgotPassword = ({ navigation }) => {
                     style={styles.TextInput}
                     placeholder={string.Email}
                     autoCorrect={false}
-                    autoCapitalize="none"
+                    autoCapitalize={string.none}
                     onChangeText={setForgotPassword}
                     onEndEditing={handleForgotPassword}
                     testID="Forgot"
                 />
             </View>
             <View>
-                {chForgotpassword == true ? null : <Text style={{ color: "red" }}>{ForgotpasswordValidError}</Text>}
+                {chForgotpassword == true ? null : <Text style={styles.color}>{ForgotpasswordValidError}</Text>}
             </View>
             <TouchableOpacity style={styles.loginBtn} onPress={() => { if (handleForgotPassword()) { navigation.replace("Signup") } }}>
                 <Text style={styles.loginbtntext}>{string.SUBMIT}</Text>
             </TouchableOpacity>
             <Text style={styles.account}>{string.Alreadyhaveanaccount}</Text>
-            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+            <View style={styles.account}>
                 <Text style={styles.textplease}>{string.Please}</Text>
                 <TouchableOpacity onPress={() => { navigation.navigate("Login") }}>
                     <Text style={styles.textsignup} testID="Logintest">{string.Login}</Text>
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#ffff",
         padding: 30
     },
+    account:{ flexDirection: "row", alignItems: "center", justifyContent: "center" },
     logintext: {
         marginTop: 30
     },
@@ -122,6 +123,10 @@ const styles = StyleSheet.create({
     textsignup: {
         color: Colors.primaryColor
     },
+    
+color:{
+    color:Colors.red
+}
 
 })
 export default ForgotPassword;

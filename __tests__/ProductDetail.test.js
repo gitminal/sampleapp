@@ -7,33 +7,13 @@ import renderer from 'react-test-renderer';
 
 enzyme.configure({ adapter: new Adapter() });
 
-describe('Dropdown component', () => {
-  test('renders correctly', () => {
-    const mockedParams = {
-      route: { params: { item: 'whatever-id' } },
-      navigation: ''
-    };
-
-    const tree = renderer.create(<ProductDetail {...mockedParams} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-  describe('Dropdown component', () => {
-    const props = {
-      options: [{ key: 'key',text: 'text',value: 'value'}],
-      value: 'value',
-      placeholder: 'placeholder',
-      onSelect: jest.fn(),
-    }
-  });
-
-
-
-  it("should find text content in all children", () => {
+describe('component', () => {
+  
+  it("test", () => {
     const item = {
       rating: "rating",
       norating: "norating",
       product_colors: "product_colors",
-      // "image": "./assets/images/avata.png",
       price: 20,
       description: "description",
       productType: "productType"
@@ -49,8 +29,59 @@ describe('Dropdown component', () => {
     
       });
   });
+})
+test('renders correctly', () => {
+  const item = {
+    rating: "rating",
+    norating: "norating",
+    product_colors: "product_colors",
+    price: 20,
+    description: "description",
+    productType: "productType"
+  };
+  const mockedParams = {
+    route: { params: { item: item } },
+    navigation: ''
+  };
 
+  const tree = renderer.create(<ProductDetail {...mockedParams} />).toJSON();
+  expect(tree).toBeTruthy();
+});
+
+
+describe("App Component", () => {
+  const item = {
+    rating: "rating",
+    norating: "norating",
+    product_colors: "product_colors",
+    price: 20,
+    description: "description",
+    productType: "productType"
+  };
+  let wrapper;
+  beforeEach(() =>
+    wrapper = mount(<ProductDetail { ...initialProps }/>),
+    wrapper.setState({ item: item }),
+  )
+it("sets the 'user.isStarred' state to 'active' or 'idle'", () => {
  
 
-})
+  expect(wrapper.state("item.rating==null").toBeTruthy("norating"));
+
+  invokeStarHandler();
+
+  expect(wrapper.state("item.rating==null").toBeTruthy("norating"));
 });
+
+})
+// it("sets the 'user.isStarred' state to 'active' or 'idle'", () => {
+ 
+
+//   expect(("item.rating==null").toEqual("item.rating"));
+
+
+//   expect(("item.rating==null").toEqual("item.rating"));
+// });
+
+
+})
